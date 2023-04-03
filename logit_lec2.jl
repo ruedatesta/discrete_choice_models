@@ -1,9 +1,9 @@
-using Plots, Distributions, Random, Optim, BenchmarkTools
+using Plots, Distributions, Random, Optim, BenchmarkTools, StatsBase
 
 Random.seed!(3)
 β=0.5
 μ=2.0;
-n=10000
+n=1000
 x=rand(Uniform(1, 10),n)
 
 dist=Gumbel();
@@ -23,15 +23,28 @@ for i=1:n
 end
 mean(decision)
 
+sim=2000;
+
+ϵw_sim=rand(dist,sim)
+ϵn_sim=rand(dist,sim)
+
+z_sim=ϵn_sim-ϵw_sim;
+z_sim=sort!(z_sim)
+
+z_cdf=ecdf(z_sim)
+
+z_cdf(5)
+
 function prob(β,μ)
-    pr=exp.(β*x)./(exp.(μ).+exp.(β*x))
+    pr=z_cdf(β*x.-[μ])
 end
+
 
 function logL_fn(θ) #LogL function
     β=θ[1]
     μ=θ[2]
     logL=0
-    n=10000
+    n=1000
     pr=prob(β,μ)
     for id=1:n 
         logL=logL+log(pr[id])*decision[id]+log(1-pr[id])*(1-decision[id])
