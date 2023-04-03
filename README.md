@@ -9,5 +9,5 @@ The structure of this notebook is divided into 5 lectures.
 - [The Logit Model solved by simulation](https://github.com/ruedatesta/discrete_choice_models/blob/main/lec2_logit.ipynb)
 - [The Probit Model](https://github.com/ruedatesta/discrete_choice_models/blob/main/lec3_probit.ipynb)
 - [Dynamic Probit Model with two choices](https://github.com/ruedatesta/discrete_choice_models/blob/main/lec4_dynamic_probit.ipynb)
-- [Dynamic Probit Model with more than two choices](http://localhost:8888/notebooks/Dropbox/PhD/discrete_choice_models/lec5_dynamic_probit_multiple_choices.ipynb)
+- [Dynamic Probit Model with more than two choices](https://github.com/ruedatesta/discrete_choice_models/blob/main/lec5_dynamic_probit_multiple_choices.ipynb)
 
